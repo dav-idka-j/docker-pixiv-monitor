@@ -1,0 +1,14 @@
+{
+    "artist_ids": [
+        123456,
+        789012
+    ],
+    "check_interval": 3600,
+    "notifications_off": true,
+    "log": {
+        "backup_count": 5,
+        "max_size": 10,
+        "directory": "log",
+        "level": "info"
+    }
+}
