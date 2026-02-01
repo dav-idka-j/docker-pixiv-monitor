@@ -51,6 +51,13 @@ This setup includes a simple web server to make the generated RSS feed directly 
     ```
     This ensures the container has permission to write to the log directory and the `seen.json` database.
 
+    Add the following to `./data/seen.json`
+    ```json
+    {
+        "illusts": []
+    }
+    ```
+
 ## Usage
 
 - **Build and Start:**
@@ -58,6 +65,11 @@ This setup includes a simple web server to make the generated RSS feed directly 
     ```bash
     docker-compose up -d --build
     ```
+
+  To re-build with the newest changes from upstream
+  ```bash
+  docker compose up -d --build --no-cache
+  ```
 
 - **View Logs:**
     To follow the logs from the monitor, run:
