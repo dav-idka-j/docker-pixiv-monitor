@@ -6,14 +6,10 @@ services:
     container_name: pixiv-monitor
     restart: unless-stopped
     ports:
-      # Expose the web server port to the host machine.
       - "8000:8000"
     env_file:
       - ./.env
     volumes:
-      # Mount the user-defined settings file
       - ./settings.json:/app/settings.json:ro
-      # Mount a volume for persisting logs
       - ./data/logs:/app/log
-      # Mount a volume to persist the list of seen illustrations
       - ./data/seen.json:/app/seen.json
