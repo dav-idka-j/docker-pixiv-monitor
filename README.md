@@ -16,18 +16,19 @@ This setup includes a simple web server to make the generated RSS feed directly 
 
     ```json
     {
-        "artist_ids": [
-            123456,
-            789012
-        ],
-        "check_interval": 3600,
-        "notifications_off": true,
-        "log": {
+      "monitors": [
+        {
+          "artist_ids": [123456, 789012],
+          "check_interval": 3600,
+          "notifications_off": true,
+          "log": {
             "backup_count": 5,
             "max_size": 10,
             "directory": "log",
             "level": "info"
+          }
         }
+      ]
     }
     ```
 
@@ -37,10 +38,10 @@ This setup includes a simple web server to make the generated RSS feed directly 
     ```bash
     REFRESH_TOKEN0='your-pixiv-refresh-token-here'
     ```
-    You can find instructions on how to get this token in the [PixivFe documentation](https://pixivfe-docs.pages.dev/hosting/api-authentication/).
+    You can get this token by using the `gppt` tool. See [here](https://github.com/eaggplants/get-pixivpy-token)
 
 3. **Prepare Data Directories (Important Security Step):**
-    This container runs as a non-root user (`uid=1001`) for security. You must create the data persistence directories on your host machine and give this user ownership **before** starting the container.
+    This container runs as a non-root user. You must create the data persistence directories on your host machine and give this user ownership **before** starting the container.
 
     Run the following commands:
     ```bash
